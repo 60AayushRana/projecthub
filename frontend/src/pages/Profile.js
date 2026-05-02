@@ -52,7 +52,7 @@ export default function Profile() {
           <div>
             <p className="font-semibold text-gray-900 dark:text-white text-lg">{user?.name}</p>
             <p className="text-gray-500 dark:text-gray-400 text-sm">{user?.email}</p>
-            <span className="badge bg-primary-100 text-primary-700 dark:bg-primary-900/30 dark:text-primary-400 mt-1 capitalize">{user?.role}</span>
+            <span className="badge bg-indigo-100 text-primary-700 dark:bg-indigo-900/30 dark:text-indigo-400 mt-1 capitalize">{user?.role}</span>
           </div>
         </div>
 

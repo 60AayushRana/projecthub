@@ -1,17 +1,25 @@
 import React from 'react';
 
-export default function StatCard({ title, value, icon: Icon, color, subtitle }) {
+export default function StatCard({ title, value, icon: Icon, gradient, change, suffix = '' }) {
   return (
-    <div className="card p-5">
-      <div className="flex items-center justify-between">
-        <div>
-          <p className="text-sm text-gray-500 dark:text-gray-400">{title}</p>
-          <p className="text-3xl font-bold text-gray-900 dark:text-white mt-1">{value ?? '—'}</p>
-          {subtitle && <p className="text-xs text-gray-400 mt-1">{subtitle}</p>}
+    <div className={`relative overflow-hidden rounded-2xl p-5 text-white shadow-card ${gradient}`}>
+      {/* Background decoration */}
+      <div className="absolute -right-4 -top-4 w-24 h-24 rounded-full bg-white/10" />
+      <div className="absolute -right-2 -bottom-6 w-16 h-16 rounded-full bg-white/10" />
+
+      <div className="relative">
+        <div className="flex items-start justify-between mb-3">
+          <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center">
+            <Icon className="w-5 h-5 text-white" />
+          </div>
+          {change !== undefined && (
+            <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${change >= 0 ? 'bg-white/20' : 'bg-black/20'}`}>
+              {change >= 0 ? '+' : ''}{change}%
+            </span>
+          )}
         </div>
-        <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${color}`}>
-          <Icon className="w-6 h-6" />
-        </div>
+        <p className="text-3xl font-bold tracking-tight">{value ?? '—'}{suffix}</p>
+        <p className="text-sm text-white/75 mt-1 font-medium">{title}</p>
       </div>
     </div>
   );

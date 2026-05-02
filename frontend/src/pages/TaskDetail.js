@@ -89,7 +89,7 @@ export default function TaskDetail() {
 
   if (loading) return (
     <div className="flex justify-center py-12">
-      <div className="w-8 h-8 border-4 border-primary-500 border-t-transparent rounded-full animate-spin" />
+      <div className="w-8 h-8 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin" />
     </div>
   );
 
@@ -109,7 +109,7 @@ export default function TaskDetail() {
             {overdue && <span className="badge bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400">Overdue</span>}
           </div>
           {task?.project && (
-            <Link to={`/projects/${task.project._id}`} className="text-sm text-primary-600 hover:underline mt-1 inline-block">
+            <Link to={`/projects/${task.project._id}`} className="text-sm text-indigo-600 hover:underline mt-1 inline-block">
               {task.project.name}
             </Link>
           )}
